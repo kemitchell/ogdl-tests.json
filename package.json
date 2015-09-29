@@ -1,0 +1,14 @@
+{
+  "name": "ogdl-tests",
+  "description": "test suite for OGDL parsers",
+  "version": "0.0.0",
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
+  "keywords": [
+    "configuration",
+    "graph",
+    "markup",
+    "parser"
+  ],
+  "license": "ISC",
+  "repository": "kemitchell/ogdl-tests.json"
+}

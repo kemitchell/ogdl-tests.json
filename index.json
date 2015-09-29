@@ -1,0 +1,24 @@
+[ { "lines": [ "a", "  n", "  \"string with spaces\"" ],
+    "json": {
+      "a": [ "b", "string with spaces" ] },
+    "spec": "3.1" },
+  { "lines": [ "a", "  b, \"string with spaces\"" ],
+    "json": {
+      "a": [ "b", "string with spaces" ] },
+    "spec": "3.2" },
+  { "lines": [ "a(b,\"string with spaces\")" ],
+    "json": {
+      "a": [ "b", "string with spaces" ] },
+    "spec": "3.3" },
+  { "lines": [ "text_block \\", "  This is a multiline", "  description" ],
+    "json": {
+      "text_block": [ "This is a multiline description" ] } },
+  { "lines": [ "text_block \\", "    This is a multiline", "  description" ],
+    "json": {
+      "text_block": [ "This is a multiline description" ] } },
+  { "lines": [ "text_block \\", "  \"This is a multiline", "  description\"" ],
+    "json": {
+      "text_block": [ "This is a multiline description" ] } },
+  { "lines": [ "# this is a comment", "#this also", "content #content", "this#not" ],
+    "json": {
+      "this#not": [ ] } } ]
