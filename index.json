@@ -12,13 +12,17 @@
     "spec": "3.3" },
   { "lines": [ "text_block \\", "  This is a multiline", "  description" ],
     "json": {
-      "text_block": [ "This is a multiline description" ] } },
+      "text_block": [ "This is a multiline description" ] },
+    "spec": "3.4" },
   { "lines": [ "text_block \\", "    This is a multiline", "  description" ],
     "json": {
-      "text_block": [ "This is a multiline description" ] } },
+      "text_block": [ "This is a multiline description" ] },
+    "spec": "3.4" },
   { "lines": [ "text_block \\", "  \"This is a multiline", "  description\"" ],
     "json": {
-      "text_block": [ "This is a multiline description" ] } },
+      "text_block": [ "This is a multiline description" ] },
+    "spec": "3.4" },
   { "lines": [ "# this is a comment", "#this also", "content #content", "this#not" ],
     "json": {
-      "this#not": [ ] } } ]
+      "this#not": [ ] },
+    "spec": "3.5" } ]

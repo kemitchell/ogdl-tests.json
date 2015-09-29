@@ -1,0 +1,17 @@
+{ "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "lines": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string" } },
+      "json": {
+        "type": "object" },
+      "spec": {
+        "type": "string",
+        "minLength": 1 } },
+    "minItems": 1,
+    "required": [ "lines", "json", "spec" ],
+    "additionalProperties": false } }
