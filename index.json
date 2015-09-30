@@ -31,7 +31,7 @@
       "config": {
         "ip": [ "1" ],
         "alt_ip": [
-          { "$ref": [ "config", "ip", "0" ] } ] } },
+          { "$ref": "$.config.ip.0" } ] } },
     "spec": "3.7" },
   { "spec": "Example 1",
     "lines": [ "libraries", "    foo.so", "    bar.so" ],
