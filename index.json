@@ -32,4 +32,151 @@
         "ip": [ "1" ],
         "alt_ip": [
           { "$ref": [ "config", "ip", "0" ] } ] } },
-    "spec": "3.7" } ]
+    "spec": "3.7" },
+  { "spec": "Example 1",
+    "lines": [ "libraries", "    foo.so", "    bar.so" ],
+    "json": {
+      "libraries": [ "foo.so", "bar.so" ] } },
+  { "spec": "Example 1",
+    "lines": [ "libraries foo.so", "    bar.so" ],
+    "json": {
+      "libraries": [ "foo.so", "bar.so" ] } },
+  { "spec": "Example 1",
+    "lines": [ "libraries", "    foo.so, bar.so" ],
+    "json": {
+      "libraries": [ "foo.so", "bar.so" ] } },
+  { "spec": "Example 1",
+    "lines": [ "libraries ( foo.so, bar.so )" ],
+    "json": {
+      "libraries": [ "foo.so", "bar.so" ] } },
+  { "spec": "Example 1",
+    "lines": [ "libraries (foo.so,bar.so)" ],
+    "json": {
+      "libraries": [ "foo.so", "bar.so" ] } },
+  { "spec": "Example 2",
+    "lines": [
+      "libraries", "    foo.so", "        version 1.2", "    bar.so",
+      "        version 2.3" ],
+    "json": {
+      "libraries": {
+        "foo.so": {
+          "version": "1.2" },
+        "bar.so": {
+          "version": "2.3" } } } },
+  { "spec": "Example 2",
+    "lines": [ "libraries", "    foo.so version 1.2", "    bar.so version 2.3" ],
+    "json": {
+      "libraries": {
+        "foo.so": {
+          "version": "1.2" },
+        "bar.so": {
+          "version": "2.3" } } } },
+  { "spec": "Example 2",
+    "lines": [ "libraries", "    ( foo.so version 1.2, bar.so version 2.3 )" ],
+    "json": {
+      "libraries": {
+        "foo.so": {
+          "version": "1.2" },
+        "bar.so": {
+          "version": "2.3" } } } },
+  { "spec": "Example 2",
+    "lines": [
+      "libraries", "    foo.so", "        version ", "            1.2",
+      "    bar.so", "        version ", "            2.3" ],
+    "json": {
+      "libraries": {
+        "foo.so": {
+          "version": "1.2" },
+        "bar.so": {
+          "version": "2.3" } } } },
+  { "spec": "Example 2",
+    "lines": [ "libraries ( foo.so version 1.2, bar.so version 2.3 )" ],
+    "json": {
+      "libraries": {
+        "foo.so": {
+          "version": "1.2" },
+        "bar.so": {
+          "version": "2.3" } } } },
+  { "spec": "More examples",
+    "lines": [
+      "# OGDL includes comments in its grammar",
+      "#This is a comment, but", "a#1 'this one is not'" ],
+    "json": {
+      "a#1": [ "this one is not" ] } },
+  { "spec": "More examples",
+    "lines": [
+      "# strings with spaces must be quoted", "names",
+      "    'Mary O\\'Connor', \"Mary O'Connor\"" ],
+    "json": {
+      "names": [ "Mary O'Connor", "Mary O'Connor" ] } },
+  { "spec": "More examples",
+    "lines": [
+      "# two ways of writing a block of text", "", "description",
+      "   \"Order is significant, and duplicate nodes ",
+      "    are allowed. Per definition, each node is",
+      "    accesible thru a path. To distinguish between",
+      "    duplicated nodes, indexes can be used.\"" ],
+    "json": {
+      "description": [ "Order is significant, and duplicate nodes are allowed. Per definition, each node is accesible thru a path. To distinguish between duplicated nodes, indexes can be used." ] } },
+  { "spec": "More examples",
+    "lines": [
+      "# two ways of writing a block of text", "", "description \\",
+      "    Order is significant, and duplicate nodes ",
+      "    are allowed. Per definition, each node is",
+      "    accesible thru a path. To distinguish between",
+      "    duplicated nodes, indexes can be used." ],
+    "json": {
+      "description": [ "Order is significant, and duplicate nodes are allowed. Per definition, each node is accesible thru a path. To distinguish between duplicated nodes, indexes can be used." ] } },
+  { "spec": "More examples",
+    "lines": [
+      "#  HTML and XML can be embedded or included in ",
+      "#  OGDL as is; no need to escape the < and >", "#  characters. ",
+      "", "header \\", "    <html><body>" ],
+    "json": {
+      "header": [ "<html><body>" ] } },
+  { "spec": "If Linux used OGDL / Alternative lilo.conf",
+    "lines": [
+      "boot    /dev/hda", "lba32", "prompt", "timeout 500",
+      "delay   500", "vga     normal", "root    current", "", "images",
+      "  linux-devfs", "    kernel  /pkg/kernel/bzImage", "",
+      "  linux-reiser",
+      "    kernel  /pkg/kernel/bz-2.2.19-devfs-reiser", "", "  install",
+      "    kernel  /pkg/kernel/bz-2.2.19-devfs-ram",
+      "    initrd  /pkg-src/sorcerer-linux/initrd",
+      "    append  root=/dev/ram0" ],
+    "json": {
+      "boot": [ "/dev/hda" ],
+      "lba32": [ ],
+      "prompt": [ ],
+      "timeout": [ "500" ],
+      "delay": [ "500" ],
+      "vga": [ "normal" ],
+      "root": [ "current" ],
+      "images": {
+        "linux-devfs": {
+          "kernel": [ "/pkg/kernel/bzImage" ] },
+        "linux-reiser": {
+          "kernel": [ "/pkg/kernel/bz-2.2.19-devfs-reiser" ] },
+        "install": {
+          "kernel": [ "/pkg/kernel/bz-2.2.19-devfs-ram" ],
+          "initrd": [ "/pkg-src/sorcerer-linux/initrd" ],
+          "append": [ "root=/dev/ram0" ] } } } },
+  { "spec": "If Linux used OGDL / df with optional OGDL output",
+    "lines": [
+      "# df -G -B M", "rootfs", "  fstype rootfs", "  total 5908 M",
+      "  used 5112 M", "  available 497 M", "  mount_point /",
+      "/dev/root", "  fstype ext2", "  total 5908 M", "  used 5112 M",
+      "  available 497 M", "  mount_point /" ],
+    "json": {
+      "rootfs": {
+        "fstype": [ "rootfs" ],
+        "total": [ "5908", "M" ],
+        "used": [ "5112", "M" ],
+        "available": [ "497", "M" ],
+        "mount_point": [ "/" ] },
+      "/dev/root": {
+        "fstype": [ "ext2" ],
+        "total": [ "5908", "M" ],
+        "used": [ "5112", "M" ],
+        "available": [ "497", "M" ],
+        "mount_point": [ "/" ] } } } ]
