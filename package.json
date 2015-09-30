@@ -1,7 +1,7 @@
 {
   "name": "ogdl-tests",
   "description": "test suite for OGDL parsers",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "devDependencies": {
     "tv4": "^1.2.7"
